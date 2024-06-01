@@ -7,7 +7,8 @@ export default function useWeather() {
     try {
       const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${search.city},${search.country}&appid=${appId}`
       const { data } = await axios(geoUrl)
-      console.log(data)
+      const lat = data[0].lat
+      const lon = data[0].lon
     } catch (error) {
       console.log(error)
     }
